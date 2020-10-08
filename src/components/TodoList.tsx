@@ -1,3 +1,4 @@
+import { spawn } from 'child_process';
 import React from 'react';
 import { Todo } from '../models/Todo';
 
@@ -9,7 +10,23 @@ const TodoList = () => {
     ];   
 
     return(
-        <div>Todo Content</div>
+        <table className="uk-table">
+            <caption>Lista de Tarefas</caption>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tarefa</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    todos.map(
+                        todo => (<div key={todo.id}>{todo.title}</div>)
+                    )
+                }
+            </tbody>
+        </table>
     );
 }
 
